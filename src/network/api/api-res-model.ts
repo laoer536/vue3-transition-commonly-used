@@ -19,3 +19,8 @@ export interface GetCityTotalNumberModel {
 }
 
 export type GetCityTotal = GetCityTotalNumberModel[];
+
+export interface CommonList {
+  id: string;
+  content: string;
+}

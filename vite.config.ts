@@ -40,7 +40,7 @@ export default ({ mode }: { mode: string }) => {
       proxy: {
         // 选项写法
         "/api": {
-          target: "http://xxxxxx.com",
+          target: "http://127.0.0.1:4523/mock/868884", //采用apifox来模拟加载数据的 用来测试过渡效果对于加载列表的效果实现
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/api/, ""),
         },
