@@ -8,4 +8,4 @@ enum APIS {
 
 /** 一个示例 */
 export const getCommonListApi = () =>
-  request.get<CommonList>(APIS.GET_COMMON_LIST);
+  request.get<CommonList[]>(APIS.GET_COMMON_LIST);
