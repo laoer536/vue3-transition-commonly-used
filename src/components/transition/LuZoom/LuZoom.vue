@@ -14,27 +14,15 @@ const props = withDefaults(defineProps<Props>(), {
 
 <style lang="less" scoped>
 /* 下面我们会解释这些 class 是做什么的 */
-.collapse-enter-active {
-  animation: collapse;
-  animation-duration: 0.3s;
-  animation-timing-function: ease-in-out;
-}
+.collapse-enter-active,
 .collapse-leave-active {
-  animation: collapse;
-  animation-duration: 0.3s;
-  animation-direction: reverse;
-  animation-timing-function: ease-in-out;
+  transition: all;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
 }
 
-@keyframes collapse {
-  0% {
-    transform-origin: top;
-    transform: scaleY(0);
-  }
-
-  100% {
-    transform-origin: top;
-    transform: scaleY(1);
-  }
+.collapse-enter-from,
+.collapse-leave-to {
+  transform: scale(0);
 }
 </style>

@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import LuCollapse from "@components/transition/LuCollapse/LuCollapse.vue";
 import { ref } from "vue";
+import LuCollapse from "@components/transition/LuCollapse/LuCollapse.vue";
 import LuFade from "@components/transition/LuFade/LuFade.vue";
+import LuZoom from "@components/transition/LuZoom/LuZoom.vue";
 const show = ref<boolean>(false);
 function changeShow() {
   show.value = !show.value;
@@ -12,6 +13,21 @@ function changeShow() {
   <br />
   <div class="container">
     <div><lu-fade :show="show">Fade</lu-fade></div>
+    <div>
+      <lu-zoom :show="show">
+        <div
+          style="
+            background-color: black;
+            color: white;
+            height: 200px;
+            width: 200px;
+            border-radius: 10px;
+          "
+        >
+          Zoom
+        </div>
+      </lu-zoom>
+    </div>
     <div>
       <lu-collapse :show="show">
         <div
