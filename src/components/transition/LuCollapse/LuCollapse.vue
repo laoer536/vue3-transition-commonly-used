@@ -3,7 +3,7 @@ import { computed } from "vue";
 
 interface Props {
   show: boolean;
-  collapseDirection?: "toTop" | "toBottom" | "toRight" | "toLeft";
+  collapseDirection?: "toTop" | "toBottom" | "toRight" | "toLeft"; //根据以下逻辑 组件在方向参数的情况未传的情况下默认是向下展开的
 }
 const props = withDefaults(defineProps<Props>(), {
   show: false,

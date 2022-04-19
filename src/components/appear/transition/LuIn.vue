@@ -2,7 +2,7 @@
 import { computed } from "vue";
 
 interface Props {
-  inDirection?: "top" | "bottom" | "right" | "left";
+  inDirection?: "top" | "bottom" | "right" | "left"; //根据以下逻辑 组件在方向参数的情况未传的情况下默认是向上过渡进入的
 }
 const props = withDefaults(defineProps<Props>(), {
   inDirection: "bottom",
