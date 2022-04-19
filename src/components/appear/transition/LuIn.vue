@@ -1,4 +1,28 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { computed } from "vue";
+
+interface Props {
+  inDirection?: "top" | "bottom" | "right" | "left";
+}
+const props = withDefaults(defineProps<Props>(), {
+  inDirection: "bottom",
+});
+
+const translateStart = computed(() => {
+  if (props.inDirection === "top") return "translateY(-10px)";
+  else if (props.inDirection === "right") return "translateX(10px)";
+  else if (props.inDirection === "left") return "translateY(-10px)";
+  else return "translateY(10px)";
+});
+
+const translateEnd = computed(() => {
+  if (translateStart.value.includes("Y")) {
+    return "translateY(0px)";
+  } else {
+    return "translateX(0px)";
+  }
+});
+</script>
 
 <template>
   <Transition appear appear-active-class="active-class ">
@@ -17,11 +41,11 @@
 @keyframes in {
   0% {
     opacity: 0;
-    transform: translateY(10px);
+    transform: v-bind(translateStart);
   }
   100% {
     opacity: 1;
-    transform: translateY(0px);
+    transform: v-bind(translateEnd);
   }
 }
 </style>
