@@ -5,13 +5,14 @@ interface Props {
   max: number;
   duration?: number;
   type?: "increase" | "decrease";
+  style?: CSSStyleDeclaration;
 }
 
 const props = withDefaults(defineProps<Props>(), {
   min: 0,
-  max: 15,
+  max: 60,
   duration: 1, //设置默认过渡时间 基本单位秒 s
-  type: "decrease", //默认增加
+  type: "increase", //默认增加
 });
 
 const intervalDuration = computed(
@@ -48,9 +49,13 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div>
+  <div class="num-container" :style="props.type">
     {{ currentNumber }}
   </div>
 </template>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.num-container {
+  display: inline-block;
+}
+</style>
