@@ -1,0 +1,85 @@
+<script setup lang="ts">
+interface Props {
+  show?: boolean;
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  show: false,
+});
+</script>
+
+<template>
+  <Teleport to="body">
+    <div v-show="props.show" class="loading">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        style="margin: auto; background: #fff; display: block"
+        width="200px"
+        height="200px"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="xMidYMid"
+      >
+        <circle cx="27.5" cy="57.5" r="5" fill="#fe718d">
+          <animate
+            attributeName="cy"
+            calcMode="spline"
+            keySplines="0 0.5 0.5 1;0.5 0 1 0.5;0.5 0.5 0.5 0.5"
+            repeatCount="indefinite"
+            values="57.5;42.5;57.5;57.5"
+            keyTimes="0;0.3;0.6;1"
+            dur="1s"
+            begin="-0.6s"
+          ></animate>
+        </circle>
+        <circle cx="42.5" cy="57.5" r="5" fill="#f47e60">
+          <animate
+            attributeName="cy"
+            calcMode="spline"
+            keySplines="0 0.5 0.5 1;0.5 0 1 0.5;0.5 0.5 0.5 0.5"
+            repeatCount="indefinite"
+            values="57.5;42.5;57.5;57.5"
+            keyTimes="0;0.3;0.6;1"
+            dur="1s"
+            begin="-0.44999999999999996s"
+          ></animate>
+        </circle>
+        <circle cx="57.5" cy="57.5" r="5" fill="#f8b26a">
+          <animate
+            attributeName="cy"
+            calcMode="spline"
+            keySplines="0 0.5 0.5 1;0.5 0 1 0.5;0.5 0.5 0.5 0.5"
+            repeatCount="indefinite"
+            values="57.5;42.5;57.5;57.5"
+            keyTimes="0;0.3;0.6;1"
+            dur="1s"
+            begin="-0.3s"
+          ></animate>
+        </circle>
+        <circle cx="72.5" cy="57.5" r="5" fill="#abbd81">
+          <animate
+            attributeName="cy"
+            calcMode="spline"
+            keySplines="0 0.5 0.5 1;0.5 0 1 0.5;0.5 0.5 0.5 0.5"
+            repeatCount="indefinite"
+            values="57.5;42.5;57.5;57.5"
+            keyTimes="0;0.3;0.6;1"
+            dur="1s"
+            begin="-0.15s"
+          ></animate>
+        </circle>
+      </svg>
+    </div>
+  </Teleport>
+</template>
+
+<style lang="less" scoped>
+.loading {
+  position: fixed;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  transform: translate(-50%, -50%);
+}
+</style>
